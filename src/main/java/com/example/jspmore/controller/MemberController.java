@@ -4,6 +4,8 @@ import com.example.jspmore.model.dto.Member;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -17,8 +19,8 @@ private static final List<Member> memberRepository = new CopyOnWriteArrayList<>(
 // ArrayList로 할 시 동시성 이슈가 있을 수 있어서...
     // static 메모리에 탑재가 될 때 실행되는...
     static {
-        memberRepository.add(new Member("user1", "홍길동"));
-        memberRepository.add(new Member("user2", "김유신"));
+//        memberRepository.add(new Member("user1", "홍길동"));
+//        memberRepository.add(new Member("user2", "김유신"));
     }
 
     @GetMapping // ("/")
@@ -30,5 +32,13 @@ private static final List<Member> memberRepository = new CopyOnWriteArrayList<>(
     @GetMapping("/add")
     public String addForm() {
         return "member/addForm"; // JSP 파일로 포워딩 -> 기존의 주소나 다른 정보를 유지한채로 연결
+    }
+
+    @PostMapping("/add")
+    public String add(@ModelAttribute Member member) {
+        memberRepository.add(member);
+//        return "member/list";
+//        return "member/addForm"; // forward
+        return "redirect:/members"; // redirect -> Post (...) -> Redirect -> GET.
     }
 }
