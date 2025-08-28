@@ -25,6 +25,16 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // JSP, JSTL 의존성
+    // JSP
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    // JSTL
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+    // webapp/~ 보안경로
+    // view resolver -> application.properties
+    // ...
+
 }
 
 tasks.named('test') {
