@@ -26,4 +26,9 @@ private static final List<Member> memberRepository = new CopyOnWriteArrayList<>(
         model.addAttribute("members", memberRepository);
         return "member/list";
     }
+
+    @GetMapping("/add")
+    public String addForm() {
+        return "member/addForm"; // JSP 파일로 포워딩 -> 기존의 주소나 다른 정보를 유지한채로 연결
+    }
 }

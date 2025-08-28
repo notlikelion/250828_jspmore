@@ -21,6 +21,7 @@
         <c:if test="${empty members}">
             <p>등록된 회원 없음</p>
         </c:if>
+<%--
         <hr>
         <footer>
             <p>2025년 클라우드 엔지니어링 수업</p>
@@ -28,3 +29,5 @@
     </div>
 </body>
 </html>
+--%>
+<jsp:include page="../_layout/footer.jsp" />
