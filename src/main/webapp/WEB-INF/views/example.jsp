@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%-- core 라이브러리 : if, forEach. --%>
 <html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- 구버전 --%>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+<%-- 신버전 --%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <head>
     <title>EL & JSTL</title>
